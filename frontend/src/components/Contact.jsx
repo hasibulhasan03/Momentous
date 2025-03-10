@@ -21,7 +21,7 @@ const Contact = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        " https://momentous-backend.onrender.com/api/v1/message/send",
+        "https://momentous-backend.onrender.com/api/v1/message/send",
         { name, email, subject, message },
         {
           withCredentials: true,

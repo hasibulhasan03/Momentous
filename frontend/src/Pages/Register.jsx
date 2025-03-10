@@ -15,7 +15,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(" https://momentous-backend.onrender.com/api/v1/auth/register", user, {
+            await axios.post("https://momentous-backend.onrender.com/api/v1/auth/register", user, {
                 withCredentials: true,
             });
             alert("Registration Successful!");
