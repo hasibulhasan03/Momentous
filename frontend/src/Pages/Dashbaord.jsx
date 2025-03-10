@@ -24,7 +24,7 @@ const Dashboard = () => {
                     return;
                 }
 
-                const { data } = await axios.get("http://localhost:4000/api/v1/auth/me", {
+                const { data } = await axios.get(" https://momentous-backend.onrender.com/api/v1/auth/me", {
                     headers: { Authorization: `Bearer ${token}` },
                     withCredentials: true,
                 });
@@ -46,7 +46,7 @@ const Dashboard = () => {
 
     const fetchEvents = async () => {
         try {
-            const { data } = await axios.get("http://localhost:4000/api/v1/event/all");
+            const { data } = await axios.get(" https://momentous-backend.onrender.com/api/v1/event/all");
             setEvents(data.events || data);
         } catch (err) {
             console.error("Failed to fetch events:", err);
@@ -68,7 +68,7 @@ const Dashboard = () => {
             }
 
             await axios.put(
-                "http://localhost:4000/api/v1/auth/update",
+                " https://momentous-backend.onrender.com/api/v1/auth/update",
                 updatedUser,
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 return;
             }
 
-            await axios.post("http://localhost:4000/api/v1/auth/logout", {}, {
+            await axios.post(" https://momentous-backend.onrender.com/api/v1/auth/logout", {}, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
@@ -114,7 +114,7 @@ const Dashboard = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.post("http://localhost:4000/api/v1/event/create", newEvent, {
+            await axios.post(" https://momentous-backend.onrender.com/api/v1/event/create", newEvent, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
@@ -130,7 +130,7 @@ const Dashboard = () => {
     const handleDeleteEvent = async (eventId) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:4000/api/v1/event/delete/${eventId}`, {
+            await axios.delete(` https://momentous-backend.onrender.com/api/v1/event/delete/${eventId}`, {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
