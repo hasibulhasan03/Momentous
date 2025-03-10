@@ -13,10 +13,12 @@ const app = express();
 dotenv.config({ path: "./config/config.env" });
 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: process.env.FRONTEND_URL || "*",
     methods: ["POST", "GET", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
